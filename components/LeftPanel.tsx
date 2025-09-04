@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { AppState, Mode, CreateFunction, EditFunction, AspectRatio } from '../types';
 import { CREATE_FUNCTIONS, EDIT_FUNCTIONS, ASPECT_RATIOS } from '../constants';
@@ -10,6 +9,72 @@ interface LeftPanelProps {
   setAppState: React.Dispatch<React.SetStateAction<AppState>>;
   onGenerate: () => void;
 }
+
+const Logo = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 300 180"
+    aria-labelledby="logo-title"
+    role="img"
+    className="w-48 mx-auto"
+  >
+    <title id="logo-title">Dominium Informática Logo</title>
+    
+    {/* Icon */}
+    <g>
+      {/* Monitor */}
+      <g>
+        {/* Screen */}
+        <path d="M125 20 H225 V100 H125 Z" fill="#36A9E1" />
+        {/* Yellow accent */}
+        <path d="M225 100 C 190 100, 160 50, 125 45 V100 H225 Z" fill="#F7C434" />
+        {/* Stand */}
+        <rect x="165" y="100" width="20" height="10" fill="#36A9E1" />
+        <rect x="150" y="110" width="50" height="7" rx="3" fill="#F7C434" />
+      </g>
+      
+      {/* Pixels */}
+      <g fill="#36A9E1">
+        <rect x="110" y="15" width="22" height="22" rx="5" />
+        <rect x="90" y="30" width="12" height="12" rx="3" />
+        <rect x="135" y="40" width="10" height="10" rx="2" />
+        <rect x="100" y="50" width="18" height="18" rx="4" />
+        <rect x="75" y="50" width="15" height="15" rx="3" />
+        <rect x="120" y="70" width="8" height="8" rx="2" />
+        <rect x="95" y="75" width="14" height="14" rx="3" />
+        <rect x="70" y="80" width="10" height="10" rx="2" />
+        <rect x="110" y="90" width="9" height="9" rx="2" />
+      </g>
+    </g>
+
+    {/* Text */}
+    <text
+      x="150"
+      y="145"
+      fontFamily="sans-serif"
+      fontSize="24"
+      fontWeight="bold"
+      fill="white"
+      textAnchor="middle"
+      letterSpacing="2"
+    >
+      DOMINIUM
+    </text>
+    <text
+      x="150"
+      y="170"
+      fontFamily="sans-serif"
+      fontSize="24"
+      fontWeight="bold"
+      fill="#F7C434"
+      textAnchor="middle"
+      letterSpacing="1"
+    >
+      INFORMÁTICA
+    </text>
+  </svg>
+);
+
 
 export const LeftPanel: React.FC<LeftPanelProps> = ({ appState, setAppState, onGenerate }) => {
   const { mode, prompt, activeCreateFunction, activeEditFunction, showTwoImageUpload, isLoading, image1, image2, aspectRatio } = appState;
@@ -60,12 +125,11 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({ appState, setAppState, onG
 
   return (
     <div className="left-panel lg:w-1/3 xl:w-1/4 bg-gray-800 p-6 flex flex-col h-full overflow-y-auto">
-      <header>
-        <h1 className="panel-title text-3xl font-bold text-white">🎨 AI Image Studio</h1>
-        <p className="panel-subtitle text-gray-400 mt-1">Gerador profissional de imagens</p>
+      <header className="mb-8 text-center">
+        <Logo />
       </header>
 
-      <div className="prompt-section mt-8">
+      <div className="prompt-section">
         <div className="section-title text-gray-300 font-semibold mb-2">💭 Descreva sua ideia</div>
         <textarea
           id="prompt"
