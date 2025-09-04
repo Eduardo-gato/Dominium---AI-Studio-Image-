@@ -1,0 +1,5 @@
+{
+  "name": "Dominium AI Image Studio",
+  "description": "A professional AI-powered application to generate and edit images using descriptive text prompts. Switch between creation and editing modes, utilize various functions like sticker or logo creation, and advanced editing tools.",
+  "requestFramePermissions": []
+}
