@@ -1,12 +1,17 @@
+// Fix: Add a triple-slash directive to include Vite's client types.
+// This makes TypeScript aware of `import.meta.env` and resolves the error.
+/// <reference types="vite/client" />
 
 import { GoogleGenAI, Modality } from "@google/genai";
 import type { AppState } from '../types';
 
-if (!process.env.API_KEY) {
-    throw new Error("API_KEY environment variable is not set.");
+const apiKey = import.meta.env.VITE_API_KEY;
+
+if (!apiKey) {
+    throw new Error("VITE_API_KEY environment variable is not set. Please check your .env file and build configuration.");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey });
 
 function dataUrlToGeminiPart(dataUrl: string) {
     const [header, data] = dataUrl.split(',');

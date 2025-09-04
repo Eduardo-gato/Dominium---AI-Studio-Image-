@@ -1,4 +1,3 @@
-
 import type { FunctionCardData, AspectRatioData } from './types';
 
 export const CREATE_FUNCTIONS: FunctionCardData[] = [

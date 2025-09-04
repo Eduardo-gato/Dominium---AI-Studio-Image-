@@ -1,4 +1,3 @@
-
 export type Mode = 'create' | 'edit';
 export type CreateFunction = 'free' | 'sticker' | 'text' | 'comic';
 export type EditFunction = 'add-remove' | 'retouch' | 'style' | 'compose';
@@ -22,7 +21,7 @@ export interface AppState {
 export interface FunctionCardData {
   id: CreateFunction | EditFunction;
   icon: string;
-  name: string;
+  name:string;
   requiresTwo?: boolean;
 }
 
